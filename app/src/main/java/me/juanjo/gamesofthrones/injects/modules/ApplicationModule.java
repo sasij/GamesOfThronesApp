@@ -6,11 +6,13 @@ import android.preference.PreferenceManager;
 
 import javax.inject.Singleton;
 
+import dagger.Module;
 import dagger.Provides;
 
 /**
  * Created by juanjo on 8/12/15.
  */
+@Module
 public class ApplicationModule {
 
     private Application application;

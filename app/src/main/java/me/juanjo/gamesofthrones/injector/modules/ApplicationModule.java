@@ -10,6 +10,8 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import me.juanjo.gamesofthrones.cache.Cache;
+import me.juanjo.gamesofthrones.cache.CacheImp;
 import me.juanjo.gamesofthrones.helpers.Bus.EventBus;
 import me.juanjo.gamesofthrones.helpers.Bus.EventBusImp;
 
@@ -48,5 +50,11 @@ public class ApplicationModule {
     @Provides
     Bus provideOttoBus() {
         return new Bus();
+    }
+
+    @Provides
+    @Singleton
+    Cache provideCache(Application application) {
+        return new CacheImp(application.getCacheDir().getPath(), application.getPackageName());
     }
 }

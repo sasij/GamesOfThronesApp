@@ -11,7 +11,9 @@ import me.alexrs.recyclerviewrenderers.interfaces.Renderable;
 import me.juanjo.gamesofthrones.events.GetCharactersEvent;
 import me.juanjo.gamesofthrones.helpers.Bus.EventBus;
 import me.juanjo.gamesofthrones.interactors.GetCharactersInteractor;
+import me.juanjo.gamesofthrones.models.Character;
 import me.juanjo.gamesofthrones.views.activities.HomeView;
+import me.juanjo.gamesofthrones.views.rows.rowModels.CharacterRow;
 
 /**
  * Created with ♥
@@ -40,9 +42,15 @@ public class HomePresenter {
      * @param event message
      */
     @Subscribe
-    public void answerAvailable(final GetCharactersEvent event) {
-        // TODO: React to the event somehow!
+    public void characterAvailables(final GetCharactersEvent event) {
         System.out.println("=> Event received");
+        if (event.getCharacters() != null) {
+            for (Character character : event.getCharacters()) {
+                items.add(new CharacterRow(character));
+            }
+            homeView.setList(items);
+        }
+        homeView.hideLoading();
     }
 
     public void setView(HomeView view) {
@@ -59,6 +67,7 @@ public class HomePresenter {
     }
 
     public void getCharacters() {
+        homeView.showLoading();
         getCharacters.execute();
     }
 }

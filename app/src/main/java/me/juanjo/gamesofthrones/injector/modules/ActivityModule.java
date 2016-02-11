@@ -2,12 +2,16 @@ package me.juanjo.gamesofthrones.injector.modules;
 
 import dagger.Module;
 import dagger.Provides;
+import me.juanjo.gamesofthrones.cache.Cache;
 import me.juanjo.gamesofthrones.cache.CharacterRepository;
+import me.juanjo.gamesofthrones.cache.CharacterRepositoryImp;
 import me.juanjo.gamesofthrones.injector.PerActivity;
 import me.juanjo.gamesofthrones.models.Character;
 
 /**
- * Created by juanjo on 8/12/15.
+ * Created with ♥
+ *
+ * @author Juanjo
  */
 @Module
 public class ActivityModule {
@@ -18,13 +22,13 @@ public class ActivityModule {
     @Provides
     @PerActivity
     Character provideCharacter() {
-        return new Character("jon", 1, "hero");
+        return new Character("jon", "url", "hero");
     }
 
     @Provides
     @PerActivity
-    CharacterRepository provideCharacterRepository() {
-        return new Character("jon", 1, "hero");
+    CharacterRepository provideCharacterRepository(Cache cache) {
+        return new CharacterRepositoryImp(cache);
     }
 
 }

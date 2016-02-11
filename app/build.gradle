@@ -33,8 +33,10 @@ dependencies {
     compile 'com.android.support:design:23.1.1'
 
     //dagger 2
-    compile 'com.google.dagger:dagger:2.0'
-    provided 'com.google.dagger:dagger-compiler:2.0'
+//    compile 'com.google.dagger:dagger:2.0'
+//    provided 'com.google.dagger:dagger-compiler:2.0'
+    apt 'com.google.dagger:dagger-compiler:2.0.2'
+    compile 'com.google.dagger:dagger:2.0.2'
     provided 'org.glassfish:javax.annotation:10.0-b28'
     //Renderer
     compile 'me.alexrs:recyclerview-renderers:1.0.4'

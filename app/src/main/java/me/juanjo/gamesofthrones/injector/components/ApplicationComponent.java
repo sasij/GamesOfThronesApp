@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import javax.inject.Singleton;
 
 import dagger.Component;
+import me.juanjo.gamesofthrones.cache.Cache;
 import me.juanjo.gamesofthrones.helpers.Bus.EventBus;
 import me.juanjo.gamesofthrones.injector.modules.ApplicationModule;
 
@@ -20,4 +21,8 @@ public interface ApplicationComponent {
     SharedPreferences provideSharedPreferences();
 
     EventBus provideEventBus();
+
+    Cache provideCache();
+
+//    CharacterRepository provideCharacterRepository();
 }

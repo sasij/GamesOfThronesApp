@@ -6,7 +6,9 @@ import me.juanjo.gamesofthrones.injector.modules.ActivityModule;
 import me.juanjo.gamesofthrones.views.activities.MainActivity;
 
 /**
- * Created by juanjo on 9/12/15.
+ * Created with ♥
+ *
+ * @author Juanjo
  */
 @PerActivity
 @Component(dependencies = ApplicationComponent.class, modules = ActivityModule.class)

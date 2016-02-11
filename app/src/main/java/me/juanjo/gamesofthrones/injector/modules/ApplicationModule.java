@@ -1,16 +1,22 @@
-package me.juanjo.gamesofthrones.injects.modules;
+package me.juanjo.gamesofthrones.injector.modules;
 
 import android.app.Application;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
+import com.squareup.otto.Bus;
+
 import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import me.juanjo.gamesofthrones.helpers.Bus.EventBus;
+import me.juanjo.gamesofthrones.helpers.Bus.EventBusImp;
 
 /**
- * Created by juanjo on 8/12/15.
+ * Created with ♥
+ *
+ * @author Juanjo
  */
 @Module
 public class ApplicationModule {
@@ -29,7 +35,18 @@ public class ApplicationModule {
 
     @Provides
     @Singleton
-    SharedPreferences getSharedPreferences() {
+    SharedPreferences provideSharedPreferences() {
         return PreferenceManager.getDefaultSharedPreferences(application);
+    }
+
+    @Provides
+    @Singleton
+    EventBus provideEventBus(Bus bus) {
+        return new EventBusImp(bus);
+    }
+
+    @Provides
+    Bus provideOttoBus() {
+        return new Bus();
     }
 }

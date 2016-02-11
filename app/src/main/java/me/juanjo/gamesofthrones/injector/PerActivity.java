@@ -1,4 +1,4 @@
-package me.juanjo.gamesofthrones.injects;
+package me.juanjo.gamesofthrones.injector;
 
 import java.lang.annotation.Retention;
 

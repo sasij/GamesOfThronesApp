@@ -1,8 +1,8 @@
-package me.juanjo.gamesofthrones.injects.components;
+package me.juanjo.gamesofthrones.injector.components;
 
 import dagger.Component;
-import me.juanjo.gamesofthrones.injects.PerActivity;
-import me.juanjo.gamesofthrones.injects.modules.ActivityModule;
+import me.juanjo.gamesofthrones.injector.PerActivity;
+import me.juanjo.gamesofthrones.injector.modules.ActivityModule;
 import me.juanjo.gamesofthrones.views.activities.MainActivity;
 
 /**

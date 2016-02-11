@@ -5,7 +5,9 @@ import java.util.List;
 import me.alexrs.recyclerviewrenderers.interfaces.Renderable;
 
 /**
- * Created by juanjo on 9/2/16.
+ * Created with ♥
+ *
+ * @author Juanjo
  */
 public interface HomeView {
 
@@ -16,5 +18,7 @@ public interface HomeView {
     void initializeView();
 
     void setList(List<Renderable> rows);
+
+    void refreshItems();
 
 }

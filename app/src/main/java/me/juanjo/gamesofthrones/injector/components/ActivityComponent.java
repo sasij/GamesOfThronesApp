@@ -3,7 +3,7 @@ package me.juanjo.gamesofthrones.injector.components;
 import dagger.Component;
 import me.juanjo.gamesofthrones.injector.PerActivity;
 import me.juanjo.gamesofthrones.injector.modules.ActivityModule;
-import me.juanjo.gamesofthrones.views.activities.MainActivity;
+import me.juanjo.gamesofthrones.presentation.views.activities.MainActivity;
 
 /**
  * Created with ♥
@@ -15,4 +15,5 @@ import me.juanjo.gamesofthrones.views.activities.MainActivity;
 public interface ActivityComponent {
 
     void inject(MainActivity mainActivity);
+
 }

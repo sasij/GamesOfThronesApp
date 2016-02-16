@@ -5,8 +5,9 @@ import android.content.SharedPreferences;
 import javax.inject.Singleton;
 
 import dagger.Component;
-import me.juanjo.gamesofthrones.cache.Cache;
-import me.juanjo.gamesofthrones.helpers.Bus.EventBus;
+import me.juanjo.gamesofthrones.implementation.infrastructure.bus.EventBus;
+import me.juanjo.gamesofthrones.implementation.infrastructure.cache.Cache;
+import me.juanjo.gamesofthrones.implementation.infrastructure.imageLoader.ImageLoader;
 import me.juanjo.gamesofthrones.injector.modules.ApplicationModule;
 
 /**
@@ -24,5 +25,6 @@ public interface ApplicationComponent {
 
     Cache provideCache();
 
-//    CharacterRepository provideCharacterRepository();
+    ImageLoader provideImageLoader();
+
 }

@@ -10,10 +10,12 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
-import me.juanjo.gamesofthrones.cache.Cache;
-import me.juanjo.gamesofthrones.cache.CacheImp;
-import me.juanjo.gamesofthrones.helpers.Bus.EventBus;
-import me.juanjo.gamesofthrones.helpers.Bus.EventBusImp;
+import me.juanjo.gamesofthrones.implementation.infrastructure.bus.EventBus;
+import me.juanjo.gamesofthrones.implementation.infrastructure.bus.EventBusImp;
+import me.juanjo.gamesofthrones.implementation.infrastructure.cache.Cache;
+import me.juanjo.gamesofthrones.implementation.infrastructure.cache.CacheImp;
+import me.juanjo.gamesofthrones.implementation.infrastructure.imageLoader.ImageLoader;
+import me.juanjo.gamesofthrones.implementation.infrastructure.imageLoader.ImageLoaderImpl;
 
 /**
  * Created with ♥
@@ -56,5 +58,11 @@ public class ApplicationModule {
     @Singleton
     Cache provideCache(Application application) {
         return new CacheImp(application.getCacheDir().getPath(), application.getPackageName());
+    }
+
+    @Provides
+    @Singleton
+    ImageLoader provideImageLoader(Application application) {
+        return new ImageLoaderImpl(application);
     }
 }

@@ -13,7 +13,7 @@ import me.juanjo.gamesofthrones.injector.modules.ApplicationModule;
  */
 public class AppApplication extends Application {
 
-    private ApplicationComponent applicationComponent;
+    private static ApplicationComponent applicationComponent;
 
     @Override
     public void onCreate() {
@@ -22,7 +22,7 @@ public class AppApplication extends Application {
         initializeInjector();
     }
 
-    public ApplicationComponent getApplicationComponent() {
+    public static ApplicationComponent getApplicationComponent() {
         return applicationComponent;
     }
 

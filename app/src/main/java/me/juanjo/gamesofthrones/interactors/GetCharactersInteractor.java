@@ -4,10 +4,10 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import me.juanjo.gamesofthrones.cache.CharacterRepository;
-import me.juanjo.gamesofthrones.events.GetCharactersEvent;
-import me.juanjo.gamesofthrones.helpers.Bus.EventBus;
-import me.juanjo.gamesofthrones.models.Character;
+import me.juanjo.gamesofthrones.data.models.Character;
+import me.juanjo.gamesofthrones.data.repositories.CharacterRepository;
+import me.juanjo.gamesofthrones.implementation.events.GetCharactersEvent;
+import me.juanjo.gamesofthrones.implementation.infrastructure.bus.EventBus;
 
 /**
  * Created with ♥
@@ -31,10 +31,6 @@ public class GetCharactersInteractor implements Interactor {
         GetCharactersEvent event = new GetCharactersEvent();
 
         List<Character> data = characterRepository.getCharacters();
-        if (data == null) {
-            //TODO
-            System.out.println("=> send error");
-        }
         event.setCharacters(data);
         bus.post(event);
     }

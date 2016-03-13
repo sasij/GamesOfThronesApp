@@ -9,6 +9,7 @@ import me.juanjo.gamesofthrones.implementation.infrastructure.bus.EventBus;
 import me.juanjo.gamesofthrones.implementation.infrastructure.cache.Cache;
 import me.juanjo.gamesofthrones.implementation.infrastructure.imageLoader.ImageLoader;
 import me.juanjo.gamesofthrones.injector.modules.ApplicationModule;
+import me.juanjo.gamesofthrones.presentation.views.rows.rowHolders.CharacterViewHolder;
 
 /**
  * Created with ♥
@@ -26,5 +27,7 @@ public interface ApplicationComponent {
     Cache provideCache();
 
     ImageLoader provideImageLoader();
+
+    void inject(CharacterViewHolder viewHolder);
 
 }

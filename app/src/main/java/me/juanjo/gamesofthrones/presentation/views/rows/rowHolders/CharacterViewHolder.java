@@ -3,6 +3,8 @@ package me.juanjo.gamesofthrones.presentation.views.rows.rowHolders;
 import android.view.View;
 import android.widget.ImageView;
 
+import javax.inject.Inject;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import me.alexrs.recyclerviewrenderers.viewholder.RenderViewHolder;
@@ -21,20 +23,22 @@ public class CharacterViewHolder extends RenderViewHolder<CharacterRow> implemen
     @Bind(R.id.characterImage)
     ImageView image;
 
+    @Inject
+    ImageLoader imageLoader;
 
     public CharacterViewHolder(final View view) {
         super(view);
-        ButterKnife.bind(this, view);
 
-        ImageLoader loader = AppApplication.getApplicationComponent().provideImageLoader();
-        if (loader == null) {
-            System.out.println("=> nullllll");
-        }
+        //We need to add an inject() method in ApplicationComponent in order to notify to Dagger that
+        // CharacterViewHolder needs a dependency provided by ApplicationModule.
+        AppApplication.getApplicationComponent().inject(this);
+
+        ButterKnife.bind(this, view);
     }
 
     @Override
     public void onBindView(final CharacterRow item) {
-//        new ImageLoaderImpl(getContext()).load(image, item.getImage());
+        imageLoader.load(image, item.getImage());
     }
 
     @Override
